@@ -1,0 +1,3 @@
+
+  <button class="enter-button" type='primary' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开启便捷生活
+  </button>

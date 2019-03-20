@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo"> -->
+    <!-- <map class='map' id='myMap' longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" 
+show-location="true" markers="{{markers}}" bindmarkertap="bindMakertap" bindcontroltap='controlTap' 
+bindregionchange='regionChange' controls='{{controls}}'
+      bindtap='bindMapTap'> -->
+      <!-- <text>{{text}}</text>
+      <text>{{text2}}</text>
+      <button bindtap="getL">asd</button>
+  </view>
+</view> -->
+<!-- canvas.wxml -->
+
+<!-- 因为 canvas-id 与前一个 canvas 重复，该 canvas 不会显示，并会发送一个错误事件到 AppService -->
+
+<map
+  id="map"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="{{scale}}"
+  bindcontroltap="controltap"
+  bindregionchange="regionchange" 
+  markers="{{markers}}"
+  bindmarkertap="markertap"
+  bindtap="clearInfo"
+  show-location
+  style="width: 100%; height: 100vh;"
+>
+  <cover-view class="cover" style="width:730rpx;height:100rpx;margin:20rpx 10rpx 20rpx 10rpx;border-radius: 20rpx;">
+    <cover-image src="{{headImage}}" class="profile"></cover-image>
+  </cover-view>
+  <cover-image class="fixed" src="../../image/location.png"></cover-image>
+  <cover-view class="info-add" wx:if="{{GetInfo}}" style="left:15vw">店铺信息</cover-view> 
+  <cover-view class="address-add" wx:if="{{InMap}}" style="left:15vw">存的按钮</cover-view> 
+  <cover-view class="address-add" wx:if="{{InMap}}" style="right:15vw">取的按钮</cover-view>
+</map>
