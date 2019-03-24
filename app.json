@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Loading/loading"
+    "pages/Loading/loading",
+    "pages/shopList/shopList",
+    "pages/shopDetail/shopDetail"
   ],
   "permission": {
     "scope.userLocation": {
@@ -11,8 +13,8 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#2c2c2c",
+    "navigationBarTitleText": "快点寄存",
+    "navigationBarTextStyle": "white"
   }
 }

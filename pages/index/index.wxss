@@ -32,12 +32,25 @@
 }
 .cover{
   background: #fff;
+  width:730rpx;
+  height:100rpx;
+  margin:10rpx 10rpx 20rpx 10rpx;
+  border-radius: 100rpx;
 }
 .profile{
+  float:left;
   width: 80rpx;
   height: 80rpx;
   border-radius: 100rpx;
   margin: 10rpx 10rpx 10rpx 10rpx;
+  background-color: #fff;
+}
+.list{
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
   background-color: #fff;
 }
 .address-add {
@@ -46,6 +59,14 @@
   width: 30vw;
   height: 100rpx;
   background: #fff;
+  border-radius: 20px;
+  
+}
+.localed {
+  position: fixed;
+  bottom: 62rpx;
+  width: 70rpx;
+  height: 70rpx;
   border-radius: 20px;
   
 }
@@ -59,10 +80,10 @@
 }
 .fixed{
   position: fixed;
-  height: 10vh;
-  width: 10vw;
-  bottom:45vh;
-  left:45vw;
+  height: 70rpx;
+  width: 70rpx;
+  bottom:50vh;
+  left:46vw;
 
 }
 

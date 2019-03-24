@@ -11,58 +11,9 @@ Page({
     nickName:'',
     latitude:'',
     longitude:'',
-    markers: [{
-      iconPath: '../../image/location.png',
-      id: 0,
-      latitude: 32.179671438036884,
-      longitude: 118.70428432861328,
-      width: 50,
-      height: 50,
-      callout:{
-        content: '我是这个气泡',
-        fontSize: 14,
-        color: '#ffffff',
-        bgColor: '#000000',
-        padding: 8,
-        borderRadius: 4,
-        boxShadow: '4px 8px 16px 0 rgba(0)'
-      }
-    }, {
-        iconPath: '../../image/location.png',
-        id: 1,
-        latitude: 32.17269719673709,
-        longitude: 118.70411266723633,
-        width: 50,
-        height: 50
-      }, {
-        iconPath: '../../image/location.png',
-        id: 1,
-        latitude: 32.059,
-        longitude: 118.62841,
-        width: 50,
-        height: 50
-      }],
-    
-  },
-  getInfo:function(){
-    var _this = this;
-    wx.request({
-      url: 'https://kdtech.top/shop/getshop',
-      method: 'GET',
-      data: {
-        latitude: _this.data.latitude,
-        longitude: _this.data.longitude
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
-        console.log(res.data)
-        _this.setData({
-          
-        })
-      }
-    });
+    markers:[],
+    cLatitude:'',
+    cLongitude:''
   },
   onLoad: function () {
     var _this =this;
@@ -75,7 +26,9 @@ Page({
       success: function (res) {
         _this.setData({
           latitude: res.latitude,
-          longitude: res.longitude
+          longitude: res.longitude,
+          cLatitude:res.latitude,
+          cLongitude:res.longitude
         })
         _this.getInfo();
       }
@@ -92,7 +45,6 @@ Page({
   },
   onShow: function () {
     var _this = this;
-
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -109,34 +61,92 @@ Page({
         }
       }
     })
-  }, 
-  regionchange: function (res) {
+  },
+  getInfo: function () {
+    //获得周边店家信息
     var that = this;
-    // 改变中心点位置  
+    wx.request({
+      url: 'https://kdtech.top/shop/getshop',
+      method: 'GET',
+      data: {
+        latitude: that.data.cLatitude,
+        longitude: that.data.cLongitude
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        var maks = [];
+        for (var j = 0, len = res.data.length; j < len; j++) {
+          var singleShop = {};
+          singleShop.iconPath = "../../image/location.png";
+          singleShop.id = res.data[j]['id'];
+          singleShop.latitude = res.data[j]['latitude'];
+          singleShop.longitude = res.data[j]['longitude'];
+          singleShop.width = 30;
+          singleShop.height = 30;
+          maks.push(singleShop);
+        }
+        that.setData({
+          markers:maks
+        })
+      }
+    });
+  },
+  getShopList(){
+    //获得周边店家信息
+    var that = this;
+    wx.navigateTo({
+      url: '../shopList/shopList?latitude=' + that.data.cLatitude + "&longitude=" + that.data.cLongitude,
+    });
+  },
+  toLocation: function () {
+    //定位到当前位置
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+      },
+    })
+  },
+regionchange: function (res) {
+  // 改变中心点位置  
+    var that = this;
     if (res.type == "end") {
       that.getCenterLocation();
     }
   },
-  getCenterLocation: function () {
+getCenterLocation: function () {
     var that = this;
     //mapId 就是你在 map 标签中定义的 id
     var mapCtx = wx.createMapContext('map');
     mapCtx.getCenterLocation({
       success: function (res) {
-        console.log('getCenterLocation----------------------->');
-        console.log(res);
+        that.getInfo();
+        that.setData({
+          cLatitude:res.latitude,
+          cLongitude:res.longitude
+        })
       }
-    })},
-     markertap: function (e) {
+})},
+markertap: function (e) {
     console.log(e)
     var that = this
     that.setData({
       GetInfo:true,
     })
-  }, clearInfo: function (e) {
+}, 
+clearInfo: function (e) {
     var that = this
     that.setData({
       GetInfo: false,
     })
-  }
- })
+},
+showList:function(){
+
+}
+})

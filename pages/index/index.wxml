@@ -25,13 +25,25 @@ bindregionchange='regionChange' controls='{{controls}}'
   bindmarkertap="markertap"
   bindtap="clearInfo"
   show-location
-  style="width: 100%; height: 100vh;"
+  style="width: 100vw; height: 100vh;"
 >
-  <cover-view class="cover" style="width:730rpx;height:100rpx;margin:20rpx 10rpx 20rpx 10rpx;border-radius: 20rpx;">
-    <cover-image src="{{headImage}}" class="profile"></cover-image>
+  <cover-view class="cover" >
+    <cover-image src="{{headImage}}" bindtap="" class="profile"></cover-image>
+    <cover-view class='search' style='height:80rpx;width:530rpx;float:left;margin-top:10rpx;margin-bottom:10rpx;'>
+      <input style='height:100%;padding-left:5rpx;' class='' placeholder='搜索快点寄存点'></input>
+    </cover-view>
+    <cover-image src="../../image/list.png" bindtap ='getShopList' class="list"></cover-image>
   </cover-view>
-  <cover-image class="fixed" src="../../image/location.png"></cover-image>
-  <cover-view class="info-add" wx:if="{{GetInfo}}" style="left:15vw">店铺信息</cover-view> 
-  <cover-view class="address-add" wx:if="{{InMap}}" style="left:15vw">存的按钮</cover-view> 
+  <cover-image class="fixed" src="../../image/nail.png"></cover-image>
+  <cover-view class="info-add" wx:if="{{GetInfo}}" style="left:15vw">
+  <cover-view > 这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o</cover-view>
+ 
+  <cover-view class='cu-tag bg-red light sm round'>背包：充足</cover-view>
+  <cover-view class='cu-tag bg-green light sm round'>旅行箱：紧俏</cover-view>
+  
+  </cover-view> 
+  <cover-image class="localed"  style="left:3vw" src='../../image/local.png' bindtap='toLocation'></cover-image>
+  <cover-view class="address-add" wx:if="{{InMap}}" style="left:15vw">存的按钮</cover-view>
+  <cover-image class="localed"  style="right:3vw" src='../../image/service.png' bindtap=''></cover-image>
   <cover-view class="address-add" wx:if="{{InMap}}" style="right:15vw">取的按钮</cover-view>
 </map>

@@ -1,0 +1,21 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">附近商户列表</view>
+        <view class="page__desc">提示文字哦</view>
+    </view>
+
+    <view class="page__bd">
+        
+        <view class="weui-cells weui-cells_after-title" wx:for="{{shopList}}"> 
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">{{item.name}}</view>
+                    
+                    <view class="weui-badge" style="margin-left: 5px;">距您{{item.distance}}km</view>
+                    <view style="font-size: 13px;color: #888888;">{{item.address}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+        </view>
+    </view>
+</view>

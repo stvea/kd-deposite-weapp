@@ -1,0 +1,83 @@
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{3}}" wx:key>
+    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    <text class='icon-title text-orange '></text> Stvea的小店
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-green shadow' bindtap="showModal" data-target="menuModal">预约寄存</button>
+  </view>
+</view>
+<view class="cu-list menu ">
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class='content'>
+      <text class='icon-home text-grey'></text>
+      <text class='text-grey'>江苏省南京市鼓楼区宁海路32号</text>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class='content'>
+      <text class='icon-time text-green'></text>
+      <text class='text-grey'>工作时间</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>8:00-21:00</text>
+    </view>
+  </view>
+
+
+  <view class="cu-item {{menuArrow?'arrow':''}}" bindtap="showModal" data-target="Modal">
+    <view class='content'>
+      <text class='icon-tagfill text-red'></text>
+      <text class='text-grey'>存储信息</text>
+    </view>
+    <view class='action'>
+      <view class="cu-tag round bg-orange light">书包</view>
+      <view class="cu-tag round bg-olive light">旅行箱</view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>寄存信息</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      旅行箱剩余 书包剩余
+    </view>
+  </view>
+</view>
+
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class='content'>
+      <text class='icon-people text-pink'></text>
+      <text class='text-grey'>刚刚来过</text>
+    </view>
+    <view class='action'>
+      <view class="cu-avatar-group">
+        <view class="cu-avatar round sm" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
+        <view class="cu-avatar round sm" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
+        <view class="cu-avatar round sm" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);"></view>
+        <view class="cu-avatar round sm" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
+      </view>
+      <text class='text-grey text-sm'>4 人</text>
+    </view>
+  </view>
+
+  
+  <view class="cu-item">
+    <view class='content padding-tb-sm'>
+      <view>
+        <text class='icon-shop text-blue'></text> 商家简介</view>
+      <view class='text-gray text-sm'>
+        <text class='icon-infofill'></text> 这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介</view>
+    </view>
+  </view>
+</view>
