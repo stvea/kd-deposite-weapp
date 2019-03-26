@@ -7,6 +7,13 @@ Page({
   data: {
     modalName:'',
   },
+  getShopDetail:function(e){
+    wx.request({
+      url: '',
+      method:'get',
+      
+    })
+  },
   showModal(e) {
     console.log('sad');
     this.setData({
@@ -22,7 +29,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var id = options.id;
+    console.log(id);
   },
 
   /**

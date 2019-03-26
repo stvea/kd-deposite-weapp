@@ -7,7 +7,7 @@
     <view class="page__bd">
         
         <view class="weui-cells weui-cells_after-title" wx:for="{{shopList}}"> 
-            <view class="weui-cell weui-cell_access">
+            <view class="weui-cell weui-cell_access" bindtap='getShopDetail' id='{{item.id}}'>
                 <view class="weui-cell__bd">
                     <view style="display: inline-block; vertical-align: middle">{{item.name}}</view>
                     

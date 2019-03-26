@@ -39,7 +39,13 @@ Page({
     });
   },
 
-
+  getShopDetail:function(e){
+    var that = this;
+    var shopId = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../shopDetail/shopDetail?id=' + shopId,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
