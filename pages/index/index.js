@@ -13,7 +13,15 @@ Page({
     longitude:'',
     markers:[],
     cLatitude:'',
-    cLongitude:''
+    cLongitude:'',
+    shopName:'',
+    shopAddress:'',
+    backpackColor: '',
+    luggageColor: '',
+    backpack:'',
+    luggage:'',
+    time:'',
+    id:''
   },
   onLoad: function () {
     var _this =this;
@@ -133,12 +141,44 @@ getCenterLocation: function () {
         })
       }
 })},
+  goToShopDetail: function (e) {
+    var that = this;
+    var shopId = that.data.id;
+    wx.navigateTo({
+      url: '../shopDetail/shopDetail?id=' + shopId,
+    });
+  },
+getShopDetail:function(id){
+  var that = this;
+  wx.request({
+    url: 'https://kdtech.top/shop/getshopDetail?id=' + id,
+    method: 'get',
+    header: {
+      'content-type': 'application/json'
+    },
+    success(res) {
+      console.log(res.data);
+      that.setData({
+        id:res.data['id'],
+        shopName: res.data['name'],
+        shopAddress: res.data['address'],
+        time: res.data['start_time'] + '-' + res.data['end_time'],
+        backpack: res.data['backpack']>3?'充足':'紧俏',
+        luggage: res.data['luggage'] > 3 ? '充足' : '紧俏',
+        backpackColor: res.data['backpack'] > 3 ? 'green' : 'red',
+        luggageColor: res.data['luggage'] > 3 ? 'green' : 'red',
+      });
+    }
+  })
+},
 markertap: function (e) {
-    console.log(e)
-    var that = this
-    that.setData({
-      GetInfo:true,
-    })
+  var id = e.markerId;
+  var that = this;
+  that.getShopDetail(id);
+
+  that.setData({
+    GetInfo:true,
+  })
 }, 
 clearInfo: function (e) {
     var that = this

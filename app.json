@@ -4,7 +4,10 @@
     "pages/logs/logs",
     "pages/Loading/loading",
     "pages/shopList/shopList",
-    "pages/shopDetail/shopDetail"
+    "pages/shopDetail/shopDetail",
+    "pages/makeOrder/makeOrder",
+    "pages/my/my",
+    "pages/register/register"
   ],
   "permission": {
     "scope.userLocation": {

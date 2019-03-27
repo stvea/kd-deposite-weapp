@@ -6,12 +6,38 @@ Page({
    */
   data: {
     modalName:'',
+    name:'',
+    address:'',
+    time:'',
+    info:'',
+    backpack:'',
+    luggage:'',
+    image0:'',
+    image1:'',
+    image2:''
   },
-  getShopDetail:function(e){
+  getShopDetail:function(id){
+    var that = this;
     wx.request({
-      url: '',
+      url: 'https://kdtech.top/shop/getshopDetail?id='+id,
       method:'get',
-      
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          name:res.data['name'],
+          address:res.data['address'],
+          time: res.data['start_time'] + '-' + res.data['end_time'],
+          backpack:res.data['backpack'],
+          luggage: res.data['luggage'],
+          info:res.data['info'],
+          image0: res.data['image0'],
+          image1: res.data['image1'],
+          image2: res.data['image2']
+        });
+      }
     })
   },
   showModal(e) {
@@ -31,7 +57,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     var id = options.id;
-    console.log(id);
+    that.getShopDetail(id);
   },
 
   /**

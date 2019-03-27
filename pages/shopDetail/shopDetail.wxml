@@ -1,12 +1,19 @@
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{3}}" wx:key>
-    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+
+  <swiper-item>
+    <image src="{{image0}}" mode='aspectFill'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="{{image1}}" mode='aspectFill'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="{{image2}}" mode='aspectFill'></image>
   </swiper-item>
 </swiper>
 
 <view class="cu-bar bg-white solid-bottom margin-top">
   <view class='action'>
-    <text class='icon-title text-orange '></text> Stvea的小店
+    <text class='icon-title text-orange '></text> {{name}}
   </view>
   <view class='action'>
     <button class='cu-btn bg-green shadow' bindtap="showModal" data-target="menuModal">预约寄存</button>
@@ -16,7 +23,7 @@
   <view class="cu-item {{menuArrow?'arrow':''}}">
     <view class='content'>
       <text class='icon-home text-grey'></text>
-      <text class='text-grey'>江苏省南京市鼓楼区宁海路32号</text>
+      <text class='text-grey'>{{address}}</text>
     </view>
   </view>
   <view class="cu-item {{menuArrow?'arrow':''}}">
@@ -25,7 +32,7 @@
       <text class='text-grey'>工作时间</text>
     </view>
     <view class='action'>
-      <text class='text-grey text-sm'>8:00-21:00</text>
+      <text class='text-grey text-sm'>{{time}}</text>
     </view>
   </view>
 
@@ -50,7 +57,7 @@
       </view>
     </view>
     <view class='padding-xl'>
-      旅行箱剩余 书包剩余
+      旅行箱剩余{{luggage}} 背包剩余{{backpack}}
     </view>
   </view>
 </view>
@@ -77,7 +84,7 @@
       <view>
         <text class='icon-shop text-blue'></text> 商家简介</view>
       <view class='text-gray text-sm'>
-        <text class='icon-infofill'></text> 这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介这里是简介</view>
+        <text class='icon-infofill'></text> {{info}}</view>
     </view>
   </view>
 </view>

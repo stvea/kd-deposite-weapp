@@ -64,19 +64,31 @@
 }
 .localed {
   position: fixed;
-  bottom: 62rpx;
+  bottom: 100rpx;
   width: 70rpx;
   height: 70rpx;
   border-radius: 20px;
   
 }
+.localed-button {
+  position: fixed;
+  bottom: 20rpx;
+  left: 5vw;
+  width: 90vw;
+  background:#2c2c2c;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  height: 80rpx;
+  border-radius: 20px;
+}
 .info-add {
   position: fixed;
-  bottom: 200rpx;
-  width: 70vw;
-  height: 200rpx;
+  bottom: 110rpx;
+  width: 90vw;
+  height: 250rpx;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .fixed{
   position: fixed;
