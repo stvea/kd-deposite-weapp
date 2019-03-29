@@ -16,7 +16,7 @@
     <text class='icon-title text-orange '></text> {{name}}
   </view>
   <view class='action'>
-    <button class='cu-btn bg-green shadow' bindtap="showModal" data-target="menuModal">预约寄存</button>
+    <button class='cu-btn bg-green shadow' bindtap="makeOrder" data-target="menuModal">预约寄存</button>
   </view>
 </view>
 <view class="cu-list menu ">

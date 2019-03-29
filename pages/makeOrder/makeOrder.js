@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:''
 
   },
 
@@ -13,9 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    that.setData({
+      id:options.id
+    })
     wx.login({
       success:function(res){
-        console.log(res.code);
         wx.request({
           url: 'https://kdtech.top/user/login',
           data: { code: res.code },
@@ -25,12 +29,12 @@ Page({
           success: function (res) {
             if(res.data['register']=='false'){
               app.globalData.isRegister = false;
-              app.globalData.openid = res.data['openid'];
+              app.globalData.openid = res.data['openid']; 
               wx.navigateTo({
                 url: '../register/register',
               })
             }else{
-
+              
             }
           }
         })

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:'',
     modalName:'',
     name:'',
     address:'',
@@ -15,6 +16,12 @@ Page({
     image0:'',
     image1:'',
     image2:''
+  },
+  makeOrder:function(e){
+    var that = this
+    wx.navigateTo({
+      url: '../makeOrder/makeOrder?id='+that.data.id,
+    })
   },
   getShopDetail:function(id){
     var that = this;
@@ -27,6 +34,7 @@ Page({
       success(res) {
         console.log(res.data);
         that.setData({
+          id:res.data['id'],
           name:res.data['name'],
           address:res.data['address'],
           time: res.data['start_time'] + '-' + res.data['end_time'],

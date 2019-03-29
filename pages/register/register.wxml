@@ -1,2 +1,37 @@
-<!--pages/register/register.wxml-->
-<text>pages/register/register.wxml</text>
+<view style='width:100vw;text-align:center;margin:100rpx 0 100rpx 0'> <image src="{{headImg}}" style='width: 160rpx;height: 160rpx;border-radius: 100rpx;'></image>
+<view style='width:100vw'><text>{{nickName}}</text></view>
+
+</view>
+
+
+  <view class="cu-form-group">
+    <view class='title'>手机号码</view>
+    <input placeholder="" type='number' class='radius' name='phone' bindinput='phoneInput' ></input>
+    <button class='cu-btn {{color}} shadow' disabled='{{disabled}}' bindtap='getCode'>{{time}}</button>
+  </view>
+
+    <view class="cu-form-group">
+    <view class='title'>验证码</view>
+    <input placeholder="" class='radius' name='code' bindinput='codeInput'></input>
+  </view>
+  <view class="cu-form-group">
+<view class='title'>我同意<text style='color:#104E8B;text-decoration:underline' data-target="Modal" bindtap='showModal'>《用户协议》</text></view>
+    <checkbox bindtap="changeAgree"></checkbox>
+</view>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>用户协议</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文用户协议正文
+    </view>
+  </view>
+</view>
+
+<view class="padding flex flex-direction" style='margin-top:100rpx'>
+  <button bindtap='register' class='cu-btn lg' style='background:#2c2c2c;color:white;'>注册</button></view>

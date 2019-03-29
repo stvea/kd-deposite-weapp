@@ -49,7 +49,20 @@ Page({
           app.userInfoReadyCallback(res)
         }
       }
-    })
+    });
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: 'https://kdtech.top/user/login',
+          data: { code: res.code },
+          header: {
+            'content-type': 'application/json' //默认值
+          },
+          success: function (res) {
+          }
+        })
+      }
+    });
   },
   onShow: function () {
     var _this = this;
@@ -61,7 +74,6 @@ Page({
             success(res) {
               app.globalData.userInfo = res.userInfo
               _this.setData({
-
                 headImage: app.globalData.userInfo.avatarUrl
               })
             }
