@@ -2,12 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Loading/loading",
+    "pages/loading/loading",
     "pages/shopList/shopList",
     "pages/shopDetail/shopDetail",
     "pages/makeOrder/makeOrder",
     "pages/my/my",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/about/about",
+    "pages/search/search"
   ],
   "permission": {
     "scope.userLocation": {
@@ -17,7 +19,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2c2c2c",
-    "navigationBarTitleText": "快点寄存",
+    "navigationBarTitleText": "小猪寄存",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
-	"appid": "wx0d9e16a78c3ee596",
+	"appid": "wx77594978d9109f9a",
 	"projectname": "%E5%BF%AB%E7%82%B9%E5%AF%84%E5%AD%98",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -59,6 +59,28 @@
 					"id": -1,
 					"name": "makeorder",
 					"pathName": "pages/makeOrder/makeOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "latitude=32.0611187789&longitude=118.7664127350",
 					"scene": null
 				}
 			]

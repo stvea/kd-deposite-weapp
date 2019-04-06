@@ -1,19 +1,3 @@
-<!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo"> -->
-    <!-- <map class='map' id='myMap' longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" 
-show-location="true" markers="{{markers}}" bindmarkertap="bindMakertap" bindcontroltap='controlTap' 
-bindregionchange='regionChange' controls='{{controls}}'
-      bindtap='bindMapTap'> -->
-      <!-- <text>{{text}}</text>
-      <text>{{text2}}</text>
-      <button bindtap="getL">asd</button>
-  </view>
-</view> -->
-<!-- canvas.wxml -->
-
-<!-- 因为 canvas-id 与前一个 canvas 重复，该 canvas 不会显示，并会发送一个错误事件到 AppService -->
-
 <map
   id="map"
   longitude="{{longitude}}"
@@ -28,10 +12,8 @@ bindregionchange='regionChange' controls='{{controls}}'
   style="width: 100vw; height: 100vh;"
 >
   <cover-view class="cover" >
-    <cover-image src="{{headImage}}" bindtap="" class="profile"></cover-image>
-    <cover-view class='search' style='height:80rpx;width:530rpx;float:left;margin-top:10rpx;margin-bottom:10rpx;'>
-      <input style='height:100%;padding-left:5rpx;' class='' placeholder='搜索快点寄存点'></input>
-    </cover-view>
+    <cover-image src="{{headImage}}" bindtap="goToMy" class="profile"></cover-image>
+    <cover-view class='search' style='margin-left:20rpx;height:100rpx;width:530rpx;float:left;line-height:100rpx' bindtap='goToSearch'>搜索寄存点</cover-view>
     <cover-image src="../../image/list.png" bindtap ='getShopList' class="list"></cover-image>
   </cover-view>
   <cover-image class="fixed" src="../../image/nail.png"></cover-image>
@@ -41,15 +23,37 @@ bindregionchange='regionChange' controls='{{controls}}'
   <cover-image class="localed"  style="right:5vw" src='../../image/service.png' bindtap=''></cover-image>
   <!-- <cover-view class="address-add" wx:if="{{InMap}}" style="right:15vw">取的按钮</cover-view> -->
   <cover-view class="localed-button">扫码存取</cover-view>
-    <cover-view class="info-add"  wx:if="{{GetInfo}}" style="left:5vw" bindtap='goToShopDetail'>
-    <!-- wx:if="{{GetInfo}}" -->
-    <cover-view style='width:100%;height:80rpx;line-height:80rpx;background:#2c2c2c;color:white;text-align:center;'>{{shopName}}</cover-view>
+  <cover-view class="info-add" wx:if="{{GetInfo}}" style='left:50rpx;' bindtap='goToShopDetail'>
+    <cover-view style='float:left;margin-left:25rpx;margin-top:10rpx;height:150rpx;width:150rpx;'>
+      <cover-image style='float:left;width:100rpx;height:100rpx;margin-left:25rpx;margin-top: 25rpx;border-radius:10px;' src="../../image/kd.jpg"></cover-image>
+    </cover-view>
+    <cover-view style='float:left;width:460rpx;margin-top:25rpx;height:50rpx;line-height:50rpx'>
+      {{shopName}}
+    </cover-view>
+    <cover-view class='text-grey' style='float:left;width:450rpx;height:30rpx;line-height:30rpx;font-size:20rpx;'>
+      {{shopAddress}}
+    </cover-view>
+    <cover-view style='float:left;width:450rpx;height:30rpx;line-height:30rpx;font-size:20rpx;'>
+      {{time}}
+    </cover-view>
+    <cover-view class='text-gray'  style='float:left;width:100%;height:20rpx;line-height:20rpx;text-align:center'>
+    - - - - - - - - - - - - -
+    </cover-view>
+    <cover-view style='margin-left:50rpx;float:left;text-align:center;height:60rpx;line-height:60rpx;'>
+      <cover-view class='cu-tag bg-{{backpackColor}} light sm round'>
+        背包：{{backpack}}
+      </cover-view>
+      <cover-view class='cu-tag bg-{{luggageColor}} light sm round'>
+        旅行箱：{{luggage}}
+      </cover-view>
+    </cover-view>
+    <!-- <cover-view style='width:100%;height:80rpx;line-height:80rpx;background:#2c2c2c;color:white;text-align:center;'>{{shopName}}</cover-view>
     <cover-view style='width:100%;height:80rpx;line-height:80rpx;text-align:left;padding-left:10rpx;font-size:24rpx;'>地址：{{shopAddress}}</cover-view>
     <cover-view style='width:100%;height:30rpx;line-height:30rpx;text-align:left;padding-left:10rpx;font-size:24rpx;'>工作时间：{{time}}</cover-view>
-    <!-- <cover-view style='width:50%;height:200rpx;text-align:center;'> {{shopAddress}}</cover-view> -->
     <cover-view style='text-align:center;height:60rpx;line-height:60rpx;'>
     <cover-view class='cu-tag bg-{{backpackColor}} light sm round'>背包：{{backpack}}</cover-view>
     <cover-view class='cu-tag bg-{{luggageColor}} light sm round'>旅行箱：{{luggage}}</cover-view>
-    </cover-view>
+    </cover-view> -->
   </cover-view> 
+
 </map>

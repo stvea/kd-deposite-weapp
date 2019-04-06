@@ -1,1 +1,2 @@
 /* pages/shopDetail/shopDetail.wxss */
+@import "../../libs/icon-luggage.wxss"

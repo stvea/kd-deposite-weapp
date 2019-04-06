@@ -1,2 +1,51 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <image src="{{headImage}}" style='border-radius: 50%;' class="png" mode="widthFix"></image>
+    <view class="text-xl">{{nickName}}
+    </view>
+    <!-- <view class="margin-top-sm">
+      <text>By:STVEA</text>
+    </view> -->
+  
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave" ></image>
+  </view>
+
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{going}}</view>
+      <view class="margin-top-sm">
+        <text class="icon-attentionfill"></text>进行中</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{finish}}</view>
+      <view class="margin-top-sm">
+        <text class="icon-favorfill"></text>已完成</view>
+    </view>
+    <!-- <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="margin-top-sm">
+        <text class="icon-fork"></text> Fork</view>
+    </view> -->
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="icon-github text-grey"></text>
+        <text class="text-grey">所有订单</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="icon-writefill text-cyan"></text>
+        <text class="text-grey">联系客服</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="../about/about" hover-class="none">
+        <text class="icon-creativefill text-orange"></text>
+        <text class="text-grey">关于快点寄存</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

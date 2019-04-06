@@ -84,8 +84,8 @@
 }
 .info-add {
   position: fixed;
-  bottom: 110rpx;
-  width: 90vw;
+  bottom: 180rpx;
+  width: 650rpx;
   height: 250rpx;
   background: #fff;
   border-radius: 10px;

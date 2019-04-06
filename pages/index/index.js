@@ -2,7 +2,6 @@ var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var qqmapsdk;
 const app = getApp()
 Page({
-
   data: {
     GetInfo:false,
     InMap:true,
@@ -16,56 +15,26 @@ Page({
     cLongitude:'',
     shopName:'',
     shopAddress:'',
-    backpackColor: '',
-    luggageColor: '',
+    backpackColor: 'red',
+    luggageColor: 'red',
     backpack:'',
     luggage:'',
     time:'',
     id:''
   },
   onLoad: function () {
-    var _this =this;
+    var that =this;
     // 实例化API核心类
     var qqmapsdk = new QQMapWX({
       key: 'LIDBZ-YYAKW-RYHRL-O76C2-RAG65-CAFQC'
     });
-    wx.getLocation({
-      type: 'gcj02',
-      success: function (res) {
-        _this.setData({
-          latitude: res.latitude,
-          longitude: res.longitude,
-          cLatitude:res.latitude,
-          cLongitude:res.longitude
-        })
-        _this.getInfo();
-      }
-    });
-    
-    wx.getUserInfo({
-      success(res) {
-        app.globalData.userInfo = res.userInfo
-        if (app.userInfoReadyCallback) {
-          app.userInfoReadyCallback(res)
-        }
-      }
-    });
-    wx.login({
-      success: function (res) {
-        wx.request({
-          url: 'https://kdtech.top/user/login',
-          data: { code: res.code },
-          header: {
-            'content-type': 'application/json' //默认值
-          },
-          success: function (res) {
-          }
-        })
-      }
-    });
+    app.getAuthInfo();
+    that.getUserLocation();
   },
   onShow: function () {
-    var _this = this;
+    var that = this;
+    app.getUserInfo();
+    app.getRegisterInfo();
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -73,7 +42,7 @@ Page({
           wx.getUserInfo({
             success(res) {
               app.globalData.userInfo = res.userInfo
-              _this.setData({
+              that.setData({
                 headImage: app.globalData.userInfo.avatarUrl
               })
             }
@@ -81,6 +50,9 @@ Page({
         }
       }
     })
+    if(that.data.latitude==''){
+      that.getUserLocation()
+    }
   },
   getInfo: function () {
     //获得周边店家信息
@@ -153,6 +125,17 @@ getCenterLocation: function () {
         })
       }
 })},
+goToSearch:function(){
+  var that = this
+  wx.navigateTo({
+    url: '../search/search?latitude=' + that.data.cLatitude + '&longitude=' + that.data.cLongitude,
+  })
+},
+goToMy:function(){
+  wx.navigateTo({
+    url: '../my/my',
+  })
+},
   goToShopDetail: function (e) {
     var that = this;
     var shopId = that.data.id;
@@ -200,5 +183,20 @@ clearInfo: function (e) {
 },
 showList:function(){
 
+},
+getUserLocation: function () {
+  var that = this;
+  wx.getLocation({
+    type: 'gcj02',
+    success: function (res) {
+      that.setData({
+        latitude: res.latitude,
+        longitude: res.longitude,
+        cLatitude: res.latitude,
+        cLongitude: res.longitude
+      })
+        that.getInfo();
+      }
+  });
 }
 })

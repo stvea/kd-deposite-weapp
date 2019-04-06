@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headImg:'',
+    headImage:'',
     nickName:'',
     time: '获取验证码', //倒计时 
     currentTime: 60,
@@ -115,7 +115,7 @@ Page({
         wx.hideLoading()
       }, 1000)
       wx.request({
-        url: 'https://kdtech.top/shop/userRegister',
+        url: 'https://kdtech.top/user/register',
         data: {
           phone:that.data.phone,
           code:that.data.code,
@@ -126,6 +126,34 @@ Page({
         },
         success: function(res) {
           console.log(res.data)
+          if(res.data['status']=='success'){
+            app.globalData.isRegister = true
+            wx.showLoading({
+              title: '注册成功！',
+            })
+            wx.navigateBack({
+              
+            })
+          }else if(res.data['status']=='phone'){
+            wx.showModal({
+              title: '提示',
+              content: '手机号已被注册！',
+              showCancel: false,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          } else if (res.data['status'] == 'code') {
+            wx.showModal({
+              title: '提示',
+              content: '验证码错误！',
+              showCancel: false,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+            return;
+          }
         },
         fail: function(res) {},
         complete: function(res) {},
@@ -138,10 +166,11 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      headImg: app.globalData.userInfo.avatarUrl,
+      headImage: app.globalData.userInfo.avatarUrl,
       nickName: app.globalData.userInfo.nickName,
       openid: app.globalData.openid
     })
+    app.getRegisterInfo()
   },
 
   /**

@@ -56,9 +56,24 @@
         <text class='icon-close text-red'></text>
       </view>
     </view>
-    <view class='padding-xl'>
-      旅行箱剩余{{luggage}} 背包剩余{{backpack}}
-    </view>
+    <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" >
+                <view class="weui-cell__bd" style='text-align:left;'><text class="icon-beibao lg"></text>背包</view>
+                <view class="weui-cell__ft" >剩余 {{backpack}} 个位置</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'><text class='icon-moneybag lg'></text>背包价格</view>
+                <view class="weui-cell__ft">每件 {{backpackPrice}} 元/天</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd" style='text-align:left;'><text class="icon-laganxiang lg"></text>旅行箱</view>
+                <view class="weui-cell__ft">剩余 {{luggage}} 个位置</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'><text class='icon-moneybag lg'></text>旅行箱价格</view>
+                <view class="weui-cell__ft">每件 {{luggagePrice}} 元/天</view>
+            </view>
+      </view>
   </view>
 </view>
 

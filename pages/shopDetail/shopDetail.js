@@ -15,7 +15,10 @@ Page({
     luggage:'',
     image0:'',
     image1:'',
-    image2:''
+    image2:'',
+    backpackPrice:'',
+    luggagePrice: '',
+
   },
   makeOrder:function(e){
     var that = this
@@ -43,7 +46,9 @@ Page({
           info:res.data['info'],
           image0: res.data['image0'],
           image1: res.data['image1'],
-          image2: res.data['image2']
+          image2: res.data['image2'],
+          backpackPrice:res.data['backpack_price'],
+          luggagePrice:res.data['luggage_price']
         });
       }
     })

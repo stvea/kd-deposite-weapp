@@ -1,2 +1,105 @@
-<!--pages/makeOrder/makeOrder.wxml-->
-<text>pages/makeOrder/makeOrder.wxml</text>
+  <view class="cu-form-group margin-top">
+    <view class="title">开始日期</view>
+    <picker mode="date" value="{{startDate}}" start="{{today}}" end="2020-09-01" bindchange="DateChange" id='startDate'>
+      <view class="picker">
+        {{startDate}}
+      </view>
+    </picker>
+  </view>
+
+    <view class="cu-form-group">
+    <view class="title">结束日期</view>
+    <picker mode="date" value="{{endDate}}" start="{{startDate}}" end="2020-09-01" bindchange="DateChange">
+      <view class="picker">
+        {{endDate}}
+      </view>
+    </picker>
+  </view>
+
+
+  <view class="cu-form-group margin-top">
+    <view class="title">背包数量</view>
+    <picker bindchange="bPickerChange" value="{{bindex}}" range="{{bpicker}}">
+      <view class="picker">
+        {{bpicker[bindex]}}
+      </view>
+    </picker>
+  </view>
+
+<view class="cu-form-group">
+  <view class="title">旅行箱数量</view>
+  <picker bindchange="lPickerChange" value="{{lindex}}" range="{{lpicker}}">
+    <view class="picker">
+      {{lpicker[lindex]}}
+    </view>
+  </picker>
+</view>
+
+<view class="padding flex flex-direction" style='margin-top:100rpx'>
+  <button class='cu-btn lg' style='background:#2c2c2c;color:white;' bindtap="checkOrderInfo" data-target="DialogModal2" >预约</button></view>
+
+  <view class="cu-modal {{modalName=='success'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">确认信息</view>
+      <view class="action" bindtap="hideModal">
+        <text class="icon-close text-red"></text>
+      </view>
+    </view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" >
+                <view class="weui-cell__bd" style='text-align:left;'>开始时间</view>
+                <view class="weui-cell__ft" >{{startDate}}</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'>结束时间</view>
+                <view class="weui-cell__ft">{{endDate}}</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd" style='text-align:left;'>店铺名</view>
+                <view class="weui-cell__ft">{{shopName}}</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'>背包</view>
+                <view class="weui-cell__ft">{{bindex}}</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'>旅行箱</view>
+                <view class="weui-cell__ft">{{lindex}}</view>
+            </view>
+            <view class="weui-cell" >
+                <view class="weui-cell__bd " style='text-align:left;'><text class='icon-moneybag lg'></text>总价</view>
+                <view class="weui-cell__ft">{{totalprice}}</view>
+            </view>
+      </view>
+    <!-- <view class="padding-xl">
+      您即将预约{{startDate}}至{{endDate}},位于{{shopAddress}}的{{shopName}},寄存的{{bindex}}个背包和{{lindex}}个拉杆箱。
+    </view> -->
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-green " bindtap="hideModal">
+        <text class="icon-moneybag"></text>微信支付</view>
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我再想想</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='error'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">剩余存放位置不足！</view>
+      <view class="action" bindtap="hideModal">
+        <text class="icon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      很抱歉！因店铺缺少位置而无法完成您的订单。
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-green " bindtap="hideModal">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">确定</view>
+    </view>
+  </view>
+</view>
+</view>
+
+  

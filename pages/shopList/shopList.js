@@ -53,7 +53,6 @@ Page({
     var that = this;
     console.log(options.latitude);
     that.getList(options.latitude,options.longitude);
-
   },
 
 
