@@ -32,10 +32,10 @@
 }
 .cover{
   background: #fff;
-  width:730rpx;
+  width:750rpx;
   height:100rpx;
-  margin:10rpx 10rpx 20rpx 10rpx;
-  border-radius: 100rpx;
+  /* margin:0rpx 10rpx 20rpx 10rpx; */
+  /* border-radius: 100rpx; */
 }
 .profile{
   float:left;
@@ -64,29 +64,29 @@
 }
 .localed {
   position: fixed;
-  bottom: 100rpx;
-  width: 70rpx;
-  height: 70rpx;
+  bottom: 90rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 20px;
   
 }
 .localed-button {
   position: fixed;
-  bottom: 20rpx;
-  left: 5vw;
-  width: 90vw;
-  background:#2c2c2c;
+  bottom: 90rpx;
+  left: 135rpx;
+  width: 480rpx;
+  background:#40E0D0;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 100rpx;
   color: white;
-  height: 80rpx;
+  height: 100rpx;
   border-radius: 20px;
 }
 .info-add {
   position: fixed;
-  bottom: 180rpx;
-  width: 650rpx;
-  height: 250rpx;
+  bottom: 250rpx;
+  width: 710rpx;
+  height: 400rpx;
   background: #fff;
   border-radius: 10px;
 }
@@ -96,6 +96,18 @@
   width: 70rpx;
   bottom:50vh;
   left:46vw;
-
 }
-
+.inline{
+  position: relative;
+  display: inline;
+  z-index: 1;
+}
+.fff{
+  position: relative;
+  left: 0;
+  top : 0;
+  white-space: normal;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}

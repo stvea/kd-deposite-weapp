@@ -120,5 +120,8 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  sss:function(e){
+    e.target.src = "../../image/kd.jpg"
   }
 })

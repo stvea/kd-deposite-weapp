@@ -1,3 +1,12 @@
 
-  <button class="enter-button" type='primary' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开启便捷生活
-  </button>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>快点寄存</view>
+  <view class='text-content'>
+    <view>Hi！欢迎使用快点寄存！</view>
+    <view class='margin-top-sm'>sadasd</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>
+<view style='text-align:center;bottom:40rpx;'>
+<button class='cu-btn lg' style='background:#2c2c2c;color:white;width:420rpx;margin-top:60rpx;' open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启便捷生活</button>
+</view>

@@ -13,7 +13,7 @@
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "shuomiim"
+      "desc": "这样我们才能知道你在哪里哦！"
     }
   },
   "window": {
